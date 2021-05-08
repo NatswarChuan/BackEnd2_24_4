@@ -58,8 +58,6 @@
             </tbody>
         </table>
         {!! $companies->links() !!}
-        {{ $companies->links() }}
-        <?php echo $companies->links(); ?>
     </div>
 </body>
 

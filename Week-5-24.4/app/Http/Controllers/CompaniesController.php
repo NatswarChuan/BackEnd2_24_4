@@ -15,4 +15,4 @@ class CompaniesController extends Controller
         $companies = $obj->paginate(15);
         return view('companies',['companies' => $companies]);
     }
-}
+}   
