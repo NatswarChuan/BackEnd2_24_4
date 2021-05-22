@@ -28,6 +28,7 @@
                     <li class="nav-item"><a class="nav-link active d-md-flex justify-content-md-start" href="/companies">Companies</a></li>
                     <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/search">Search</a></li>
                     <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/trainers">Trainer</a></li>
+                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/categories">Category</a></li>
                 </ul>
             </div>
         </div>
@@ -41,6 +42,7 @@
                     <th>company_id</th>
                     <th>trainer_email</th>
                     <th>trainer_phone</th>
+                    <th>company_name</th>
                 </tr>
             </thead>
             <tbody>
@@ -51,11 +53,12 @@
                     <td>{!! $trainer->company_id !!}</td>
                     <td>{!! $trainer->trainer_email !!}</td>
                     <td>{!! $trainer->trainer_phone !!}</td>
+                    <td>{!! $trainer->trainersCompanies['company_name']!!}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-                    <?php echo $trainers->links(); ?>
+                    <?php  echo $trainers->links(); ?>
         
     </div>
 </body>

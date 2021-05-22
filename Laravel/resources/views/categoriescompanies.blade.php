@@ -31,47 +31,56 @@
         </div>
     </nav>
     <nav class="d-flex justify-content-center">
-        <form action="/categories" method="get">
+        <form action="/search" method="get">
             <input type="search" name="search" />
             <button type="submit">search</button>
             <div class="form-group">
-        {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
-    </div>
+            </div>
         </form>
     </nav>
-    
+
 </body>
 <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>company_id</th>
-                    <th>company_name</th>
-                    <th>company_web</th>
-                    <th>company_address</th>
-                    <th>company_phone</th>
-                    <th>company_code</th>
-                    <th>category_id</th>
-                </tr>
-            </thead>
-            @isset($_GET['search']):
+    <table class="table">
+        <thead>
+            <tr>
+                <th>category_id</th>
+                <th>category_name</th>
+            </tr>
+        </thead>
 
-            <tbody>
+        <tbody>
 
-                @foreach($search as $company):
-                <tr>
-                    <td>{!! $company->company_id !!}</td>
-                    <td>{!! $company->company_name !!}</td>
-                    <td>{!! $company->company_web !!}</td>
-                    <td>{!! $company->company_address !!}</td>
-                    <td>{!! $company->company_phone !!}</td>
-                    <td>{!! $company->company_code !!}</td>
-                    <td>{!! $company->category_id !!}</td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
-        {!! $search->links() !!}
-        @endif
-    </div>
+            @foreach($categories as $category)
+            <tr>
+                <td>{!! $category->category_id !!}</td>
+                <td>{!! $category->category_name !!}</td>
+                <td>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>company_id</th>
+                                    <th>company_name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($category->categoriesCompanies as $company)
+                                <tr>
+                                    <td>{!! $company->company_id !!}</td>
+                                    <td>{!! $company->company_name !!}</td>
+                                </tr>
+
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    {!! $categories->links() !!}
+</div>
+
 </html>

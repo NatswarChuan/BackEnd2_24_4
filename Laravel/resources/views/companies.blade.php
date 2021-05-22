@@ -28,12 +28,13 @@
                     <li class="nav-item"><a class="nav-link active d-md-flex justify-content-md-start" href="/companies">Companies</a></li>
                     <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/search">Search</a></li>
                     <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/trainers">Trainer</a></li>
+                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/categories">Category</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    
+
 
     <div class="table-responsive">
         <table class="table">
@@ -45,10 +46,12 @@
                     <th>company_address</th>
                     <th>company_phone</th>
                     <th>company_code</th>
+                    <th>trainer_name</th>
+                    <th>categories</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach($companies as $company):
+                @foreach($companies as $company)
                 <tr>
                     <td>{!! $company->company_id !!}</td>
                     <td>{!! $company->company_name !!}</td>
@@ -56,6 +59,12 @@
                     <td>{!! $company->company_address !!}</td>
                     <td>{!! $company->company_phone !!}</td>
                     <td>{!! $company->company_code !!}</td>
+                    <td>{!! $company->companiesTrainers['trainer_name'] !!}</td>
+                    <td>
+                        @foreach($company->companiesCategories as $category)
+                        {!! $category['category_name'] !!}
+                        @endforeach
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

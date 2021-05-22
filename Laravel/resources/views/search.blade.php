@@ -25,13 +25,18 @@
                     <li class="nav-item"><a class="nav-link active d-md-flex justify-content-md-start" href="/companies">Companies</a></li>
                     <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/trainers">Trainer</a></li>
                     <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/search">Search</a></li>
+                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/categories">Category</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <nav class="d-flex justify-content-center">
         <form action="/search" method="get">
+            @isset($_GET['search']):
+            <input type="search" name="search" value="{!!$_GET['search']!!}" />
+            @else
             <input type="search" name="search" />
+            @endif
             <button type="submit">search</button>
         </form>
     </nav>
@@ -61,7 +66,7 @@
                 @endforeach
             </tbody>
             {{$search->links()}}
-          
+
             @endif
 
         </table>

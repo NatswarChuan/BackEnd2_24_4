@@ -16,11 +16,13 @@ use App\Http\Controllers\TrainersController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/companies', [CompaniesController::class,'companies']);
+Route::get('/', [CompaniesController::class,'companies']);
 Route::get('/trainers', [TrainersController::class,'trainers']);
 Route::get('/search', [SearchController::class,'search']);
 Route::get('/categories', [CategoriesController::class,'categories']);
+Route::get('/categoriescompanies', [CategoriesController::class,'categoriescompanies']);

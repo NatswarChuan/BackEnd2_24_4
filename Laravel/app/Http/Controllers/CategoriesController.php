@@ -24,4 +24,10 @@ class CategoriesController extends Controller
         
         return view('categories',['categories' => $categories,'search'=>$companies]);
     }
+
+    public function categoriescompanies(){
+        $obj = new Categories();
+        $categories = $obj->paginate(15);
+        return view('categoriescompanies',['categories' => $categories]);
+    }
 }   
