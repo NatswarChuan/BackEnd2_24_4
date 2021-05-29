@@ -15,7 +15,7 @@ class TrainerSeeder extends Seeder
     public function run()
     {
         $collection = collect([1, 2, 3]);
-        for ($i=0; $i < 500; $i++) { 
+        for ($i=0; $i < 10; $i++) { 
             DB::table('trainers')->insert([
                 'trainer_name' => Str::random(3),
                 'company_id' => $collection->random(),
