@@ -15,10 +15,27 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         
-        $this->call([     
-            CompanySeeder::class,
-            TrainerSeeder::class,
-            CategorySeeder::class,
+        $this->call([
+            
+            CompaniesSeender::class,
+            TrainersSeender::class,
+            CategoriesSeender::class,
+            ClassHasCourseSeeder::class,
+            ClassSeeder::class,
+            CommentSeeder::class,
+            CourseSeeder::class,
+            FacultySeeder::class,
+            IntershipDiaryWeekSeeder::class,
+            DiaryDayOfWeekSeeder::class,
+            StudentSeeder::class,
+            TeacherSeeder::class,
+            CategoriesHasCompaniesSeender::class,
+            GroupsHasPermissionsSeender::class,
+            GroupsSeender::class,
+            PermissionsSeender::class,
+            UserHasGroupsSeender::class,
+            UserHasPermissionsSeender::class,
+            UserSeender::class,
           ]);
     }
 }

@@ -2,15 +2,18 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Companies;
 
 class Categories extends Model
 {
     protected $table = 'categories';
-    protected $primaryKey = 'category_id';
-    protected $with = array('categoriesCompanies');
+    protected $primaryKey = 'categories_id';
+    protected $with = ['companyNames'];
 
-    public function categoriesCompanies(){
-        return $this->hasMany(Companies::class,'category_id','category_id');
+    public function companyNames()
+    {
+        return $this->hasMany(Companies::class);
     }
 }
